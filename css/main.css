@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: whitesmoke;
+    color: rgb(25, 25, 25);
+}
+
+form input, form select {
+    margin-bottom: 1vh;
+}
