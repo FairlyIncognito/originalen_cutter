@@ -15,9 +15,9 @@
         <h1 class="text-primary">Originalen Cut Tool</h1>
         <form method="POST" action="/code/functions.php" class="d-flex flex-column w-25">
             <label for="elementSizeX">Bredde på element:</label>
-            <input type="number" name="elementSizeX">
+            <input type="number" name="elementSizeX" placeholder="Bredde i mm">
             <label for="elementSizeY">Højde på element:</label>
-            <input type="number" name="elementSizeY">
+            <input type="number" name="elementSizeY" placeholder="Højde i mm">
 
             <label for="gutterSize">Luft imellem:</label>
             <input type="number" name="gutterSize" value="6">
@@ -26,14 +26,37 @@
             <input type="number" name="sheetMargin" value="5">
 
             <label for="sheetSize">Vælg størrelse:</label>
-            <select name="sheetSize" id="sheetSize">
-                <option value="sra">SRA 320mm x 450mm</option>
-                <option value="a3">A3 297mm x 420mm</option>
-                <option value="a4">A4 210mm x 297mm</option>
-            </select>
+            <div>
+                <input type="radio" name="sheetSize" id="sra" value="sra" checked>
+                <label for="sra">SRA 320x450mm</label>                
+            </div>
+            <div>
+                <input type="radio" name="sheetSize" id="a3" value="a3">
+                <label for="a3">A3 297x420mm</label>                
+            </div>
+            <div>
+                <input type="radio" name="sheetSize" id="a4" value="a4">
+                <label for="a4">A4 210x297mm</label> 
+            </div>
 
+            <!-- #TODO:
+                    js for only showing text-fields if custom radio is checked
+                    js for dynamically changing text-field value according to user input
+            -->
+            <div>
+                <input type="radio" name="sheetSize" id="custom" value="">
+                <label for="custom">Bestem størrelse:</label>
+                <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm">
+                <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm">
+            </div>
+            
             <button type="button" class="btn btn-primary">Beregn</button>
         </form>
+
+        <figure class="figure mt-3">
+            <img src="/assets/400x300.svg" class="figure img-fluid rounded">
+            <figcaption class="figure-caption text-center">Placeholder</figcaption>
+        </figure>
     </main>
 </body>
 </html>

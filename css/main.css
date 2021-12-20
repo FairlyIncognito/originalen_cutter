@@ -8,3 +8,11 @@ body {
 form input, form select {
     margin-bottom: 1vh;
 }
+
+form div input[type="radio"] {
+    margin: 1vh;
+}
+
+#sheetSizeX, #sheetSizeY {
+    display: block;
+}
