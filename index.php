@@ -64,7 +64,7 @@ include_once('code/functions.php');
 
         <div id="elementsDiv">
             <?php
-                sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
+                calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
             ?>
         </div>
     </main>

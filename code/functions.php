@@ -43,6 +43,6 @@ function calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin,
     }
 }
 
-function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY) {
-    echo calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
+function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY, $elementAmount) {
+    
 }
