@@ -1,3 +1,7 @@
+<?php
+require('code/main.php');
+include_once('code/functions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +17,13 @@
 <body>
     <main class="d-flex flex-column justify-content-center align-items-center">
         <h1 class="text-primary">Originalen Cut Tool</h1>
-        <form method="POST" action="/code/functions.php" class="d-flex flex-column w-25">
+        
+        <form method="POST" action="" class="d-flex flex-column w-25">
+    
             <label for="elementSizeX">Bredde på element:</label>
-            <input type="number" name="elementSizeX" placeholder="Bredde i mm">
+            <input type="number" name="elementSizeX" placeholder="Bredde i mm" value="<?php echo isset($elementSizeX) ? $elementSizeX : '';?>">
             <label for="elementSizeY">Højde på element:</label>
-            <input type="number" name="elementSizeY" placeholder="Højde i mm">
+            <input type="number" name="elementSizeY" placeholder="Højde i mm" value="<?php echo isset($elementSizeY) ? $elementSizeY: '';?>">
 
             <label for="gutterSize">Luft imellem:</label>
             <input type="number" name="gutterSize" value="6">
@@ -27,36 +33,52 @@
 
             <label for="sheetSize">Vælg størrelse:</label>
             <div>
-                <input type="radio" name="sheetSize" id="sra" value="sra" checked>
+                <input type="radio" name="sheetSize" id="sra" value="sra" checked onclick="javascript:customSizeCheck();">
                 <label for="sra">SRA 320x450mm</label>                
             </div>
             <div>
-                <input type="radio" name="sheetSize" id="a3" value="a3">
+                <input type="radio" name="sheetSize" id="a3" value="a3" onclick="javascript:customSizeCheck();">
                 <label for="a3">A3 297x420mm</label>                
             </div>
             <div>
-                <input type="radio" name="sheetSize" id="a4" value="a4">
+                <input type="radio" name="sheetSize" id="a4" value="a4" onclick="javascript:customSizeCheck();">
                 <label for="a4">A4 210x297mm</label> 
             </div>
 
-            <!-- #TODO:
-                    js for only showing text-fields if custom radio is checked
-                    js for dynamically changing text-field value according to user input
-            -->
             <div>
-                <input type="radio" name="sheetSize" id="custom" value="">
-                <label for="custom">Bestem størrelse:</label>
-                <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm">
-                <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm">
+                <input type="radio" name="sheetSize" id="customSize" onclick="javascript:customSizeCheck();" value="">
+                <label for="customSize">Bestem størrelse</label>
+                <div id="customSizeDiv">
+                    <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm">
+                    <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm">
+                </div>
             </div>
             
-            <button type="button" class="btn btn-primary">Beregn</button>
+            <input type="submit" class="btn btn-primary" value="Beregn">
         </form>
 
         <figure class="figure mt-3">
             <img src="/assets/400x300.svg" class="figure img-fluid rounded">
             <figcaption class="figure-caption text-center">Placeholder</figcaption>
         </figure>
+
+        <div id="elementsDiv">
+            <?php
+                sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
+            ?>
+        </div>
     </main>
+<!-- <script>
+    var elementsXperSheetX = <?php echo json_encode($elementsXperSheetX, JSON_HEX_TAG); ?>;
+    var elementsXperSheetY = <?php echo json_encode($elementsXperSheetY, JSON_HEX_TAG); ?>;
+    var elementsYperSheetX = <?php echo json_encode($elementsYperSheetX, JSON_HEX_TAG); ?>;
+    var elementsYperSheetY = <?php echo json_encode($elementsYperSheetY, JSON_HEX_TAG); ?>;
+
+    var c = document.getElementById("sheetCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.rect();
+    ctx.stroke();
+</script> -->
 </body>
 </html>

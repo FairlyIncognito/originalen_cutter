@@ -1,12 +1,8 @@
-$(document).ready(function(){
-    $("input[type=radio]").change(function(){
-        if($(this).attr("rel") == "attach")
-        {
-            $(this).val($("#testtype").val());
-        }
-    });
-
-   $("#testtype").change(function(){
-        $("input[type=radio]:eq(3)").val($(this).val());
-   });   
-});
+function customSizeCheck() {
+  if(document.getElementById("customSize").checked) {
+    document.getElementById("customSizeDiv").style.display = "block";
+  } 
+  else if(document.getElementById("sra").checked || document.getElementById("a3").checked || document.getElementById("a4").checked) {
+    document.getElementById("customSizeDiv").style.display = "none";
+  }
+}

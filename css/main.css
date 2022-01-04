@@ -16,3 +16,7 @@ form div input[type="radio"] {
 #sheetSizeX, #sheetSizeY {
     display: block;
 }
+
+#customSizeDiv {
+    display: none;
+}
