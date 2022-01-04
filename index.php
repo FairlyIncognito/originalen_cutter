@@ -68,17 +68,5 @@ include_once('code/functions.php');
             ?>
         </div>
     </main>
-<!-- <script>
-    var elementsXperSheetX = <?php echo json_encode($elementsXperSheetX, JSON_HEX_TAG); ?>;
-    var elementsXperSheetY = <?php echo json_encode($elementsXperSheetY, JSON_HEX_TAG); ?>;
-    var elementsYperSheetX = <?php echo json_encode($elementsYperSheetX, JSON_HEX_TAG); ?>;
-    var elementsYperSheetY = <?php echo json_encode($elementsYperSheetY, JSON_HEX_TAG); ?>;
-
-    var c = document.getElementById("sheetCanvas");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.rect();
-    ctx.stroke();
-</script> -->
 </body>
 </html>

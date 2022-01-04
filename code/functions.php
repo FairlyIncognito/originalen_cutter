@@ -17,11 +17,32 @@ function calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $
     $value = max($array);
     $key = array_search($value, $array);
     return $key . " " . $value;
+}
 
+function calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
+{
+    $fit = calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
+    $fit = explode(' ', $fit);
+
+    $elementOrientation = $fit[0];
+    $elementAmount = floor($fit[1]);
+
+    switch ($elementOrientation) {
+        case "elementsXperSheetX":
+            return "xx" . $elementAmount;
+            break;
+        case "elementsXperSheetY":
+            return "xy" . $elementAmount;
+            break;
+        case "elementsYperSheetX":
+            return "yx" . $elementAmount;
+            break;
+        case "elementsYperSheetY":
+            return "yy" . $elementAmount;
+            break;
+    }
 }
 
 function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY) {
-    $fit = calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
-
-    echo $fit;
+    echo calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
 }

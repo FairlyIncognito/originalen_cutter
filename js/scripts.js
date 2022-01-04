@@ -1,3 +1,4 @@
+// show boxes for custom size if custom size is ticked, else hide.
 function customSizeCheck() {
   if(document.getElementById("customSize").checked) {
     document.getElementById("customSizeDiv").style.display = "block";
