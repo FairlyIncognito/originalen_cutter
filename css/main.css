@@ -1,8 +1,11 @@
-body {
+body * {
     margin: 0;
     padding: 0;
-    background: whitesmoke;
     color: rgb(25, 25, 25);
+}
+
+body {
+    background: whitesmoke;
 }
 
 form input, form select {
@@ -19,4 +22,18 @@ form div input[type="radio"] {
 
 #customSizeDiv {
     display: none;
+}
+
+aside h2 {
+    text-align: center;
+}
+
+.sheet {
+    display: inline-grid;
+    border: 1px solid black;
+}
+
+.sheet div {
+    border: 1px solid black;
+    margin:auto;
 }

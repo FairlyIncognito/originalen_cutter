@@ -1,5 +1,6 @@
 <?php
 require('main.php');
+
 function calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
 {
     $elementMaxSizeX = $elementSizeX + $gutterSize;
@@ -8,41 +9,60 @@ function calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $
     $sheetMaxSizeX = ($sheetSizeX - $sheetMargin);
     $sheetMaxSizeY = ($sheetSizeY - $sheetMargin);
 
-    $elementsXperSheetX = $sheetMaxSizeX / $elementMaxSizeX;
-    $elementsXperSheetY = $sheetMaxSizeY / $elementMaxSizeX;
-    $elementsYperSheetX = $sheetMaxSizeX / $elementMaxSizeY;
-    $elementsYperSheetY = $sheetMaxSizeY / $elementMaxSizeY;
+    $elementsXperSheetY = floor($sheetMaxSizeY / $elementMaxSizeX);
+    $elementsYperSheetX = floor($sheetMaxSizeX / $elementMaxSizeY);
+    $elementsYperSheetY = floor($sheetMaxSizeY / $elementMaxSizeY);
+    $elementsXperSheetX = floor($sheetMaxSizeX / $elementMaxSizeX);
 
     $array = compact('elementsXperSheetX', 'elementsXperSheetY', 'elementsYperSheetX', 'elementsYperSheetY');
-    $value = max($array);
-    $key = array_search($value, $array);
-    return $key . " " . $value;
+    return $array;
 }
 
-function calculateSheet($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
+function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY)
 {
-    $fit = calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
-    $fit = explode(' ', $fit);
+    $sheet = calculateFit($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
 
-    $elementOrientation = $fit[0];
-    $elementAmount = floor($fit[1]);
+    $value = max($sheet);
+    $key = array_search($value, $sheet);
+    $i = ($value);
 
-    switch ($elementOrientation) {
-        case "elementsXperSheetX":
-            return "xx" . $elementAmount;
+    $orientation = $key;
+    switch ($orientation) {
+        case 'elementsXperSheetY':
+            echo 'xy';
             break;
-        case "elementsXperSheetY":
-            return "xy" . $elementAmount;
+        case 'elementsXperSheetX':
+            echo 'xx';
             break;
-        case "elementsYperSheetX":
-            return "yx" . $elementAmount;
+        case 'elementsYperSheetY':
+            echo 'yy';
             break;
-        case "elementsYperSheetY":
-            return "yy" . $elementAmount;
+        case 'elementsYperSheetX':
+            echo 'yx';
             break;
     }
-}
-
-function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY, $elementAmount) {
     
+    echo
+        "<div class='sheet' style='
+            width:$sheetSizeX" . "px;" . "
+            height:$sheetSizeY" . "px;" . "
+            padding:$sheetMargin" . "px;" . "
+            grid-template-columns: repeat( auto-fill, minmax($elementSizeX" . "px, 1fr) );" . "
+            grid-template-rows: repeat( auto-fill, minmax($elementSizeY" . "px, 1fr) );" . "
+            grid-gap:$gutterSize" . "px;" .
+        "'>";
+    
+        for ($i; $i >= 1; $i--) {
+        echo
+            "<div style='
+                width:$elementSizeX" . "px;" . "
+                height:$elementSizeY" . "px;" .
+            "'>
+            </div>";
+    }
+    echo '</div>';
+
+    echo '<pre>';
+    var_dump($sheet);
+    echo '</pre>';
 }
