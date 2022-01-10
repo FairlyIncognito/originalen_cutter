@@ -26,7 +26,7 @@ function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $
 
     // find highest value in array and apply variables to the name and value
     $max = max($sheet);
-    echo $orientation = array_search($max, $sheet);
+    $orientation = array_search($max, $sheet);
 
     $sheetHeight = $sheetSizeY;
     $sheetWidth = $sheetSizeX;
