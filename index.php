@@ -11,6 +11,7 @@ include_once('code/functions.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://kit.fontawesome.com/449a34927a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
         
     <title>Originalen | Cut Tool</title>
@@ -35,20 +36,20 @@ include_once('code/functions.php');
 
                 <label for="sheetSize">Vælg størrelse:</label>
                 <div>
-                    <input type="radio" name="sheetSize" id="sra" value="sra" checked required onclick="javascript:customSizeCheck();">
+                    <input type="radio" name="sheetSize" class="sheetSize" id="sra" value="sra" checked required onclick="javascript:customSizeCheck();">
                     <label for="sra">SRA 320x450mm</label>                
                 </div>
                 <div>
-                    <input type="radio" name="sheetSize" id="a3" value="a3" onclick="javascript:customSizeCheck();">
+                    <input type="radio" name="sheetSize" class="sheetSize" id="a3" value="a3" onclick="javascript:customSizeCheck();">
                     <label for="a3">A3 297x420mm</label>                
                 </div>
                 <div>
-                    <input type="radio" name="sheetSize" id="a4" value="a4" onclick="javascript:customSizeCheck();">
+                    <input type="radio" name="sheetSize" class="sheetSize" id="a4" value="a4" onclick="javascript:customSizeCheck();">
                     <label for="a4">A4 210x297mm</label> 
                 </div>
 
                 <div>
-                    <input type="radio" name="sheetSize" id="customSize" onclick="javascript:customSizeCheck();" value="">
+                    <input type="radio" name="sheetSize" class="sheetSize" id="customSize" onclick="javascript:customSizeCheck();" value="">
                     <label for="customSize">Bestem størrelse</label>
                     <div id="customSizeDiv">                        
                         <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm" value="<?php echo isset($sheetSizeX) ? $sheetSizeX : '';?>">
