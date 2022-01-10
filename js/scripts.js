@@ -7,3 +7,13 @@ function customSizeCheck() {
     document.getElementById("customSizeDiv").style.display = "none";
   }
 }
+
+// toggle switch for custom variables
+function toggleCustomValue() {
+  var sheetSizeX = document.getElementById("sheetSizeX");
+  var sheetSizeY = document.getElementById("sheetSizeY");
+  var x = sheetSizeX.value;
+  var y = sheetSizeY.value;
+  sheetSizeX.value = y;
+  sheetSizeY.value = x;
+}
