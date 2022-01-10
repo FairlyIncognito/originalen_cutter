@@ -10,6 +10,7 @@ include_once('code/functions.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/449a34927a.js" crossorigin="anonymous"></script>
     <script src="/js/scripts.js"></script>
         
     <title>Originalen | Cut Tool</title>
@@ -49,8 +50,9 @@ include_once('code/functions.php');
                 <div>
                     <input type="radio" name="sheetSize" id="customSize" onclick="javascript:customSizeCheck();" value="">
                     <label for="customSize">Bestem størrelse</label>
-                    <div id="customSizeDiv">
+                    <div id="customSizeDiv">                        
                         <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm" value="<?php echo isset($sheetSizeX) ? $sheetSizeX : '';?>">
+                        <button onclick="javascript:toggleCustomValue();"><i class="fas fa-exchange-alt text-primary"></i></button>                        
                         <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm" value="<?php echo isset($sheetSizeY) ? $sheetSizeY : '';?>">
                     </div>
                 </div>
