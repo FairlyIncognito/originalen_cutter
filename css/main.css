@@ -20,12 +20,18 @@ form div input[type="radio"] {
     margin: 1vh;
 }
 
-#sheetSizeX, #sheetSizeY {
+#sheetSizeY {
     display: block;
 }
 
 #customSizeDiv {
     display: none;
+}
+
+#customSizeDiv button {
+    background: none;
+    border: none;
+    display: inline-block;
 }
 
 aside h2, aside p {
