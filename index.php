@@ -15,7 +15,7 @@ include_once('code/functions.php');
     <title>Originalen | Cut Tool</title>
 </head>
 <body>
-    <main class="d-flex flex-row justify-content-around align-items-around">
+    <main class="d-flex flex-row flex-wrap justify-content-around align-items-around">
         <section class="d-flex flex-column">
             <h1 class="text-primary">Originalen Cut Tool</h1>
             
@@ -27,14 +27,14 @@ include_once('code/functions.php');
                 <input type="number" name="elementSizeY" placeholder="Højde i mm" value="<?php echo isset($elementSizeY) ? $elementSizeY: '';?>">
 
                 <label for="gutterSize">Luft imellem:</label>
-                <input type="number" name="gutterSize" value="6">
+                <input type="number" name="gutterSize" value="<?php echo isset($gutterSize) ? $gutterSize : '6';?>">
 
                 <label for="sheetMargin">Margin til kant:</label>
-                <input type="number" name="sheetMargin" value="5">
+                <input type="number" name="sheetMargin" value="<?php echo isset($sheetMargin) ? $sheetMargin : '5';?>">
 
                 <label for="sheetSize">Vælg størrelse:</label>
                 <div>
-                    <input type="radio" name="sheetSize" id="sra" value="sra" checked onclick="javascript:customSizeCheck();">
+                    <input type="radio" name="sheetSize" id="sra" value="sra" checked required onclick="javascript:customSizeCheck();">
                     <label for="sra">SRA 320x450mm</label>                
                 </div>
                 <div>
@@ -50,8 +50,8 @@ include_once('code/functions.php');
                     <input type="radio" name="sheetSize" id="customSize" onclick="javascript:customSizeCheck();" value="">
                     <label for="customSize">Bestem størrelse</label>
                     <div id="customSizeDiv">
-                        <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm">
-                        <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm">
+                        <input type="text" name="sheetSizeX" id="sheetSizeX" placeholder="Bredde i mm" value="<?php echo isset($sheetSizeX) ? $sheetSizeX : '';?>">
+                        <input type="text" name="sheetSizeY" id="sheetSizeY" placeholder="Højde i mm" value="<?php echo isset($sheetSizeY) ? $sheetSizeY : '';?>">
                     </div>
                 </div>
                 

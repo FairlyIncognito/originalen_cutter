@@ -8,6 +8,10 @@ body {
     background: whitesmoke;
 }
 
+h1, h2 {
+    margin-bottom: 1vh;
+}
+
 form input, form select {
     margin-bottom: 1vh;
 }
@@ -24,7 +28,7 @@ form div input[type="radio"] {
     display: none;
 }
 
-aside h2 {
+aside h2, aside p {
     text-align: center;
 }
 
