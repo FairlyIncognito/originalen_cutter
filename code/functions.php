@@ -26,46 +26,41 @@ function sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $
 
     // find highest value in array and apply variables to the name and value
     $max = max($sheet);
-    $orientation = array_search($max, $sheet);
+    echo $orientation = array_search($max, $sheet);
+
+    $sheetHeight = $sheetSizeY;
+    $sheetWidth = $sheetSizeX;
 
     switch ($orientation) {
         case 'elementsXperSheetY':
             $columns = $elementSizeX;
             $rows = $elementSizeY;
-            $sheetHeight = $sheetSizeY;
-            $sheetWidth = $sheetSizeX;
             $elementHeight = $elementSizeY;
             $elementWidth = $elementSizeX;
             $orientationY = $sheet["elementsYperSheetY"];
             $orientationX = $sheet["elementsXperSheetX"];
             break;
         case 'elementsXperSheetX':
-            $columns = $elementSizeX;
-            $rows = $elementSizeY;
-            $sheetHeight = $sheetSizeY;
-            $sheetWidth = $sheetSizeX;
-            $elementHeight = $elementSizeY;
-            $elementWidth = $elementSizeX;
+            $columns = $elementSizeY;
+            $rows = $elementSizeX;
+            $elementHeight = $elementSizeX;
+            $elementWidth = $elementSizeY;
             $orientationY = $sheet["elementsYperSheetX"];
             $orientationX = $sheet["elementsXperSheetY"];
             break;
         case 'elementsYperSheetY':
             $columns = $elementSizeY;
             $rows = $elementSizeX;
-            $sheetHeight = $sheetSizeY;
-            $sheetWidth = $sheetSizeX;
             $elementHeight = $elementSizeX;
             $elementWidth = $elementSizeY;
             $orientationY = $sheet["elementsXperSheetY"];
             $orientationX = $sheet["elementsYperSheetX"];
             break;
         case 'elementsYperSheetX':
-            $columns = $elementSizeY;
-            $rows = $elementSizeX;
-            $sheetHeight = $sheetSizeX;
-            $sheetWidth = $sheetSizeY;
-            $elementHeight = $elementSizeX;
-            $elementWidth = $elementSizeY;
+            $columns = $elementSizeX;
+            $rows = $elementSizeY;
+            $elementHeight = $elementSizeY;
+            $elementWidth = $elementSizeX;
             $orientationY = $sheet["elementsXperSheetX"];
             $orientationX = $sheet["elementsYperSheetY"];
             break;
