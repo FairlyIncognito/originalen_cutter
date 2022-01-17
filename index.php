@@ -1,6 +1,6 @@
 <?php
-require('code/main.php');
-include_once('code/functions.php');
+require 'code/main.php';
+require 'Originalen/Model/Preview.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +9,10 @@ include_once('code/functions.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/449a34927a.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
         
     <title>Originalen | Cut Tool</title>
 </head>
@@ -24,15 +24,15 @@ include_once('code/functions.php');
             <form method="POST" action="" class="d-flex flex-column">
         
                 <label for="elementSizeX">Bredde på element:</label>
-                <input type="number" name="elementSizeX" placeholder="Bredde i mm" value="<?php echo isset($elementSizeX) ? $elementSizeX : '';?>">
+                <input type="number" name="elementSizeX" required placeholder="Bredde i mm" value="<?php echo isset($elementSizeX) ? $elementSizeX : '';?>">
                 <label for="elementSizeY">Højde på element:</label>
-                <input type="number" name="elementSizeY" placeholder="Højde i mm" value="<?php echo isset($elementSizeY) ? $elementSizeY: '';?>">
+                <input type="number" name="elementSizeY" required placeholder="Højde i mm" value="<?php echo isset($elementSizeY) ? $elementSizeY: '';?>">
 
                 <label for="gutterSize">Luft imellem:</label>
-                <input type="number" name="gutterSize" value="<?php echo isset($gutterSize) ? $gutterSize : '6';?>">
+                <input type="number" name="gutterSize" required value="<?php echo isset($gutterSize) ? $gutterSize : '6';?>">
 
                 <label for="sheetMargin">Margin til kant:</label>
-                <input type="number" name="sheetMargin" value="<?php echo isset($sheetMargin) ? $sheetMargin : '5';?>">
+                <input type="number" name="sheetMargin" required value="<?php echo isset($sheetMargin) ? $sheetMargin : '5';?>">
 
                 <label for="sheetSize">Vælg størrelse:</label>
                 <div>
@@ -64,10 +64,7 @@ include_once('code/functions.php');
 
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                echo '<aside class="d-flex flex-column">';
-                    echo '<h2 class="text-primary">Preview</h2>';
-                    sheetPreview($elementSizeX, $elementSizeY, $gutterSize, $sheetMargin, $sheetSizeX, $sheetSizeY);
-                echo '</aside>';
+                $preview->previewRender();
             } 
         ?>
     </main>

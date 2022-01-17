@@ -1,4 +1,5 @@
 <?php
+// error reporting
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
@@ -28,6 +29,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sheetSizeY = 297;
         }
     }
-    
 }
-?>
